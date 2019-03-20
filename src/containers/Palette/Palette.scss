@@ -1,7 +1,7 @@
 .palette-div {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
-  grid-gap: 0;
+  grid-gap: 10px;
   justify-content: center;
 }
 
@@ -9,4 +9,25 @@
   height: 300px;
   width: 200px;
   border: 1px solid black;
+}
+
+.generate-button {
+  display: block;
+  margin: 20px auto 40px auto;
+}
+
+.unlock-button {
+  display: block;
+  height: 25px;
+  width: 25px;
+  background: url('./images/padlock-unlock.png');
+  background-size: cover;
+  border: none;
+  border-radius: none;
+  box-shadow: none;
+  margin: 200px auto 10px auto;
+}
+
+h4 {
+  text-align: center;
 }

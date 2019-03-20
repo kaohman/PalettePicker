@@ -1,0 +1,11 @@
+.project-container {
+  margin: 0 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
+  grid-gap: 20px;
+}
+
+.load-more {
+  display: block;
+  margin: 10px auto;
+}

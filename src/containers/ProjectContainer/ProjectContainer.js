@@ -5,8 +5,10 @@ export const ProjectContainer = () => {
 
   return (
     <div>
-      <ProjectCard />
-      <button>Load More Projects</button>
+      <div className='project-container'>
+        <ProjectCard />
+      </div>
+      <button className='load-more standard-button'>Load More Projects</button>
     </div>
   )
 }

@@ -8,13 +8,28 @@ export const Palette = ({ currentPalette }) => {
         {/* {
           Object.keys(currentPalette).map(item => <div className={`color-div ${currentPalette[item].color}`}></div>)
         } */}
-        <div className='color-div'></div>
-        <div className='color-div'></div>
-        <div className='color-div'></div>
-        <div className='color-div'></div>
-        <div className='color-div'></div>
+        <div className='color-div'>
+          <button className='unlock-button'></button>
+          <h4>#FFFFFF</h4>
+        </div>
+        <div className='color-div'>
+          <button className='unlock-button'></button>
+          <h4>#FFFFFF</h4>
+        </div>
+        <div className='color-div'>
+          <button className='unlock-button'></button>
+          <h4>#FFFFFF</h4>
+        </div>
+        <div className='color-div'>
+          <button className='unlock-button'></button>
+          <h4>#FFFFFF</h4>
+        </div>
+        <div className='color-div'>
+          <button className='unlock-button'></button>
+          <h4>#FFFFFF</h4>
+        </div>
       </div>
-      <button>Generate Palette</button>
+      <button className='generate-button standard-button'>Generate Palette</button>
     </div>
   )
 }

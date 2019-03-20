@@ -10,19 +10,19 @@ export class ControlForm extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div className='form-div'>
+        <div className='save-palette-div'>
           <select>
             <option></option>
           </select>
           <input placeholder='Add palette name'></input>
-          <button>Save Palette</button>
+          <button className='standard-button'>Save Palette</button>
         </div>
-        <div>
+        <div className='new-project-div'>
           <label>Create New Project:
             <input placeholder='Add project name'></input>
           </label>
-          <button>Save Project</button>
+          <button className='standard-button'>Save Project</button>
         </div>
       </div>
     )
