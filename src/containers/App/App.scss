@@ -37,3 +37,10 @@ select {
 img {
   width: 25px;
 }
+
+button,
+input {
+  &:focus {
+    outline: none;
+  }
+}
