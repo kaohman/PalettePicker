@@ -1,0 +1,12 @@
+.palette-div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+  grid-gap: 0;
+  justify-content: center;
+}
+
+.color-div {
+  height: 300px;
+  width: 200px;
+  border: 1px solid black;
+}
