@@ -6,22 +6,19 @@ export class Palette extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      colors: [],
       locked: []
     }
   }
   
   setRandomColors = () => {
-    const { colors, locked } = this.state;
+    const { locked } = this.state;
+    const { currentPalette } = this.props;
     let newColors = [];
     for (let i = 0; i < 5; i++) {
-      const color = locked.includes(i.toString()) ? colors[i] : `#${Math.random().toString(16).slice(2, 8)}`;
+      const color = locked.includes(i.toString()) ? currentPalette[i] : `#${Math.random().toString(16).slice(2, 8)}`;
       newColors.push(color.toUpperCase());
     }
-    this.setState({
-      colors: newColors
-    })
-    this.props.setCurrentPalette(newColors)
+    this.props.setCurrentPalette(newColors);
   }
 
   toggleLock = (e) => {
@@ -36,12 +33,13 @@ export class Palette extends Component {
   }
 
   render() {
-    const { colors, locked } = this.state;
+    const { locked } = this.state;
+    const { currentPalette } = this.props;
     return(
       <div>
         <div className='palette-div'>
           {
-            colors.map((color, i) => {
+            currentPalette.map((color, i) => {
               return(
                 <div style={{ backgroundColor: color }} className='color-div'>
                   <button 
