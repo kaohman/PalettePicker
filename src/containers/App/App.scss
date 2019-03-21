@@ -39,7 +39,8 @@ img {
 }
 
 button,
-input {
+input,
+select {
   &:focus {
     outline: none;
   }

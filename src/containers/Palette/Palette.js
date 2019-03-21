@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { setCurrentPalette } from '../../actions';
 
 export class Palette extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ export class Palette extends Component {
     this.setState({
       colors: newColors
     })
+    this.props.setCurrentPalette(newColors)
   }
 
   toggleLock = (e) => {
@@ -64,4 +66,8 @@ const mapStateToProps = (state) => ({
   currentPalette: state.currentPalette,
 });
 
-export default connect(mapStateToProps)(Palette);
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentPalette: (palette) => dispatch(setCurrentPalette(palette)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Palette);
