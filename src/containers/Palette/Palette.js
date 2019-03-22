@@ -40,6 +40,7 @@ export class Palette extends Component {
         <div className='palette-div'>
           {
             currentPalette.map((color, i) => {
+              console.log(color)
               return(
                 <div style={{ backgroundColor: color }} className='color-div'>
                   <button 
