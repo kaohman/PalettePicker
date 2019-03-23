@@ -14,13 +14,13 @@ export const fetchData = async (path, method, data = null) => {
         headers: {
           'Content-type': 'application/json'
         }
-      }
+      };
   };
-  
+
   const url = process.env.REACT_APP_BACKEND_URL + path;
   const response = await fetch(url, options);
   const json = await response.json();
-  
+
   if (response.status === 204) {
     return
   } else if (response.ok) {

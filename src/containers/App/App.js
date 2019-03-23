@@ -5,11 +5,12 @@ import ControlForm from '../ControlForm/ControlForm';
 import ProjectContainer from '../ProjectContainer/ProjectContainer';
 import '../../main.scss';
 import { connect } from 'react-redux';
+import { fetchProjects } from '../../thunks/fetchProjects'
 
 export class App extends Component {
 
   componentDidMount = () => {
-    this.fetchProjects()
+    this.props.fetchProjects()
   };
 
   render() {
@@ -24,7 +25,7 @@ export class App extends Component {
   }
 }
 
-mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   fetchProjects: () => dispatch(fetchProjects()),
 })
 

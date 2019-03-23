@@ -1,16 +1,26 @@
 import React from 'react';
 import { ProjectCard } from '../ProjectCard/ProjectCard';
+import { connect } from 'react-redux';
 
-export const ProjectContainer = () => {
+export const ProjectContainer = (props) => {
+  const projectCards = props.projects.map(project => {
+    const projectPalettes = props.palettes.filter(palette => palette.project_id === project.id);
+    return <ProjectCard projectTitle={project.name} palettes={projectPalettes} />
+  });
 
   return (
     <div>
       <div className='project-container'>
-        <ProjectCard />
+        { projectCards }
       </div>
       <button className='load-more standard-button'>Load More Projects</button>
     </div>
   )
 }
 
-export default ProjectContainer;
+export const mapStateToProps = (state) => ({
+  projects: state.projects,
+  palettes: state.palettes
+});
+
+export default connect(mapStateToProps)(ProjectContainer);
