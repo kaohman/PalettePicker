@@ -3,7 +3,9 @@ export const projectsReducer = (state = [], action) => {
     case 'SET_PROJECTS':
       return action.projects
     case 'ADD_PROJECT':
-      return [action.project, ...state.projects];
+      let currentProjects = state.slice()
+      currentProjects.unshift(action.project)
+      return currentProjects
     case 'REMOVE_PROJECT':
       const newProjects = state.projects.filter(project => project.id === action.projectId);
       return newProjects

@@ -6,7 +6,7 @@ export const postProject = (name) => {
     try {
       dispatch(setLoading(true));
       const newProjectId = await fetchData('/api/v1/projects', 'POST', { name });
-      dispatch(addProject({id:newProjectId, name}));
+      dispatch(addProject({ id: newProjectId[0], name }));
     } catch (error) {
       dispatch(setError(error.message));
     }
