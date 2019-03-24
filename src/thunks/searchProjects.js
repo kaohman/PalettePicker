@@ -9,11 +9,12 @@ export const searchProjects = (search) => {
       const cleanedProjects = allProjects.map(project => {
         const { id, name } = project;
         return { id, name };
-      })
+      });
       dispatch(setSearchProjects(cleanedProjects));
     } catch (error) {
+      dispatch(setSearchProjects([]));
       dispatch(setError(error.message));
     }
     dispatch(setLoading(false));
-  }
-}
+  };
+};

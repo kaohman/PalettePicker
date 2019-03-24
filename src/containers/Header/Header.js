@@ -13,18 +13,18 @@ export class Header extends Component {
 
   handleChange = (e) => {
     const { value } = e.target;
-    const { setSearching, searchProjects } = this.props;
-    const { search } = this.state;
+    this.setState({ search: value }, this.handleSearch);
+  };
 
-    this.setState({ search: value },
-      () => {
-        if (value.length) {
-          setSearching(true)
-          searchProjects(search)
-        } else {
-          setSearching(false)
-        }
-      });
+  handleSearch = () => {
+    const { search } = this.state;
+    const { setSearching, searchProjects } = this.props;
+    if (search.length) {
+      setSearching(true);
+      searchProjects(search);
+    } else {
+      setSearching(false);
+    }
   };
 
   render() {
@@ -48,6 +48,5 @@ export const mapDispatchToProps = (dispatch) => ({
   searchProjects: (search) => dispatch(searchProjects(search)),
   setSearching: (bool) => dispatch(setSearching(bool)),
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
