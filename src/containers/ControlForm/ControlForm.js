@@ -18,7 +18,7 @@ export class ControlForm extends Component {
     const { setError, postProject } = this.props;
     setError('');
     const id = await postProject(this.state.project);
-    this.setState({ selectedProject: id })
+    this.setState({ selectedProject: id.toString() })
     this.clearInput('project');
   }
 
