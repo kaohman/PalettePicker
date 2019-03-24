@@ -39,7 +39,7 @@ export class ControlForm extends Component {
   }
 
   clearInput = (name) => {
-    !this.props.error && this.setState({ [name]: ''})
+    !this.props.error && this.setState({ [name]: '' })
   }
 
   handleChange = (e) => {
@@ -74,7 +74,7 @@ export class ControlForm extends Component {
             }
           </select>
           <input onChange={this.handleChange} value={palette} id='palette' placeholder='Add palette name'></input>
-          <button className='standard-button'>Save Palette</button>
+          <button onClick={this.savePalette} className='standard-button' disabled={selectedProject.length ? false : true}>Save Palette</button>
         </div>
         <p>{error}</p>
       </div>
