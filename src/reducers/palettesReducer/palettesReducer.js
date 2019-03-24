@@ -7,7 +7,7 @@ export const palettesReducer = (state = [], action) => {
       });
       return fetchedPalettes
     case 'ADD_PALETTE':
-      return [...state.palettes, action.palette];
+      return [...state, action.palette];
     case 'REMOVE_PALETTE':
       const newPalettes = state.palettes.filter(palette => palette.id === action.paletteId);
       return newPalettes
