@@ -1,0 +1,13 @@
+.delete-palette {
+  height: 20px;
+  width: 20px;
+  background: url('./images/trash.png');
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: url('./images/trash-hover.png');
+    background-size: cover;
+  }
+}

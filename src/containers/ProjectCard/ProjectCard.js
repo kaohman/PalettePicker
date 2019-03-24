@@ -1,6 +1,7 @@
 import React from 'react';
 import { deleteProject } from '../../thunks/deleteProject';
 import { connect } from 'react-redux';
+import ProjectCardPalette from '../ProjectCardPalette/ProjectCardPalette';
 
 export const ProjectCard = (props) => {
   const deleteCard = async (e) => {
@@ -8,14 +9,7 @@ export const ProjectCard = (props) => {
   }
 
   const palettes = props.palettes.map(palette => {
-    return <div className='card-palette'>
-      <h4>{palette.name}</h4>
-      <div style={{ backgroundColor: palette.color1 }} className='palette-color-div'></div>
-      <div style={{ backgroundColor: palette.color2 }} className='palette-color-div'></div>
-      <div style={{ backgroundColor: palette.color3 }} className='palette-color-div'></div>
-      <div style={{ backgroundColor: palette.color4 }} className='palette-color-div'></div>
-      <div style={{ backgroundColor: palette.color5 }} className='palette-color-div'></div>
-    </div>
+    return <ProjectCardPalette {...palette} key={palette.id}/>
   });
 
   return (
