@@ -1,11 +1,11 @@
 import React from 'react';
-import { ProjectCard } from '../ProjectCard/ProjectCard';
+import ProjectCard from '../ProjectCard/ProjectCard';
 import { connect } from 'react-redux';
 
 export const ProjectContainer = (props) => {
   const projectCards = props.projects.map(project => {
     const projectPalettes = props.palettes.filter(palette => palette.project_id === project.id);
-    return <ProjectCard projectTitle={project.name} palettes={projectPalettes} />
+    return <ProjectCard projectTitle={project.name} palettes={projectPalettes} id={project.id} key={project.id}/>
   });
 
   return (
