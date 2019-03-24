@@ -7,7 +7,7 @@ export const projectsReducer = (state = [], action) => {
       currentProjects.unshift(action.project)
       return currentProjects
     case 'REMOVE_PROJECT':
-      const newProjects = state.projects.filter(project => project.id === action.projectId);
+      const newProjects = state.filter(project => project.id !== action.projectId);
       return newProjects
     default:
       return state

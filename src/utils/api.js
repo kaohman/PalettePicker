@@ -19,11 +19,11 @@ export const fetchData = async (path, method, data = null) => {
 
   const url = process.env.REACT_APP_BACKEND_URL + path;
   const response = await fetch(url, options);
-  const json = await response.json();
+  
+  if (response.status === 204) return 'success'
 
-  if (response.status === 204) {
-    return
-  } else if (response.ok) {
+  const json = await response.json();
+  if (response.ok) {
     return json;
   } else {
     throw Error(json);
