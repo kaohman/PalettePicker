@@ -6,12 +6,13 @@ export const fetchProjects = () => {
   return async (dispatch) => {
     try {
       dispatch(setLoading(true));
-      const allProjects = await fetchData('/api/v1/projects', 'GET');
-      const cleanedProjects = allProjects.map(project => {
-        const { id, name } = project;
-        return { id, name };
-      })
-      dispatch(setProjects(cleanedProjects));
+      let allProjects = await fetchData('/api/v1/projects', 'GET');
+      allProjects.sort((a, b) => {
+        if (a.updated_at > b.updated_at) return -1;
+        if (b.updated_at < a.updated_at) return 1;
+        return 0;
+      });
+      dispatch(setProjects(allProjects));
       const allPalettes = await dispatch(fetchPalettes(allProjects));
       dispatch(setPalettes(allPalettes));
     } catch (error) {
