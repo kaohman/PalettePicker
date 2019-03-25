@@ -13,7 +13,7 @@ export const ProjectContainer = ({ error, searching, projects, palettes }) => {
     return itemsCopy
   }
 
-  const sortPalettes = (id) => {
+  const getProjectPalettes = (id) => {
     let projectPalettes = palettes.filter(palette => palette.project_id === id);
     return projectPalettes.length ? sortItems(projectPalettes) : []
   }
@@ -21,16 +21,16 @@ export const ProjectContainer = ({ error, searching, projects, palettes }) => {
   const setProjectCards = () => {
     let projectsCopy = projects.slice();
     projectsCopy.forEach((project, i) => {
-      const sortedPalettes = sortPalettes(project.id);
-      if (sortedPalettes.length && sortedPalettes[0].updated_at > project.updated_at) {
-        projectsCopy[i].updated_at = sortedPalettes[0].updated_at
+      const projectPalettes = getProjectPalettes(project.id);
+      if (projectPalettes.length && projectPalettes[0].updated_at > project.updated_at) {
+        projectsCopy[i].updated_at = projectPalettes[0].updated_at
       }
     });
     
     const sortedProjects = sortItems(projects);
     return sortedProjects.map(project => {
-      const sortedPalettes = sortPalettes(project.id);
-      return <ProjectCard projectTitle={project.name} palettes={sortedPalettes} id={project.id} key={project.id} />
+      const projectPalettes = getProjectPalettes(project.id);
+      return <ProjectCard projectTitle={project.name} palettes={projectPalettes} id={project.id} key={project.id} />
     });
   }
 
