@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { searchProjects } from '../../thunks/searchProjects';
+import { fetchProjects } from '../../thunks/fetchProjects';
 import { setSearching } from '../../actions';
+import { setError } from '../../actions';
 
 export class Header extends Component {
   constructor(props) {
@@ -12,18 +13,20 @@ export class Header extends Component {
   };
 
   handleChange = (e) => {
+    this.props.setError('');
     const { value } = e.target;
     this.setState({ search: value }, this.handleSearch);
   };
 
   handleSearch = () => {
     const { search } = this.state;
-    const { setSearching, searchProjects } = this.props;
+    const { setSearching, fetchProjects } = this.props;
     if (search.length) {
       setSearching(true);
-      searchProjects(search);
+      fetchProjects(search);
     } else {
       setSearching(false);
+      fetchProjects();
     }
   };
 
@@ -45,8 +48,9 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  searchProjects: (search) => dispatch(searchProjects(search)),
-  setSearching: (bool) => dispatch(setSearching(bool)),
+  setError: (error) => dispatch(setError(error)),
+  fetchProjects: (name) => dispatch(fetchProjects(name)),
+  setSearching: (bool) => dispatch(setSearching(bool))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
