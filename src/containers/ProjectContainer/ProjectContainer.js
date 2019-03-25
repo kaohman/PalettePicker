@@ -2,22 +2,41 @@ import React from 'react';
 import ProjectCard from '../ProjectCard/ProjectCard';
 import { connect } from 'react-redux';
 
-export const ProjectContainer = (props) => {
-  const { error, searching, projects, palettes } = props;
-  let projectCards;
+export const ProjectContainer = ({ error, searching, projects, palettes }) => {
+  const sortItems = (items) => {
+    let itemsCopy = items.slice();
+    itemsCopy.sort((a, b) => {
+      if (a.updated_at > b.updated_at) return -1;
+      if (b.updated_at < a.updated_at) return 1;
+      return 0;
+    });
+    return itemsCopy
+  }
 
-  if (searching && error) {
-    projectCards = <div>No projects or palettes match that name</div>
-  } else {
-    projectCards = projects.map(project => {
-      const projectPalettes = palettes.filter(palette => palette.project_id === project.id);
-      return <ProjectCard projectTitle={project.name} palettes={projectPalettes} id={project.id} key={project.id} />
+  const sortPalettes = (id) => {
+    let projectPalettes = palettes.filter(palette => palette.project_id === id);
+    return projectPalettes.length ? sortItems(projectPalettes) : []
+  }
+
+  const setProjectCards = () => {
+    let projectsCopy = projects.slice();
+    projectsCopy.forEach((project, i) => {
+      const sortedPalettes = sortPalettes(project.id);
+      if (sortedPalettes.length && sortedPalettes[0].updated_at > project.updated_at) {
+        projectsCopy[i].updated_at = sortedPalettes[0].updated_at
+      }
+    });
+    
+    const sortedProjects = sortItems(projects);
+    return sortedProjects.map(project => {
+      const sortedPalettes = sortPalettes(project.id);
+      return <ProjectCard projectTitle={project.name} palettes={sortedPalettes} id={project.id} key={project.id} />
     });
   }
 
   return (
     <div className='project-container'>
-      {projectCards}
+      { searching && error ? <div>No projects or palettes match that name</div> : setProjectCards() }
     </div>
   );
 };

@@ -7,12 +7,7 @@ export const fetchProjects = (name = null) => {
     try {
       dispatch(setLoading(true));
       const path = name ? `?name=${name}` : '';
-      let allProjects = await fetchData('/api/v1/projects' + path, 'GET');
-      allProjects.sort((a, b) => {
-        if (a.updated_at > b.updated_at) return -1;
-        if (b.updated_at < a.updated_at) return 1;
-        return 0;
-      });
+      const allProjects = await fetchData('/api/v1/projects' + path, 'GET');
       dispatch(setProjects(allProjects));
       const allPalettes = await dispatch(fetchPalettes(allProjects));
       dispatch(setPalettes(allPalettes));
