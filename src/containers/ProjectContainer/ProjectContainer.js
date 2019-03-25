@@ -21,11 +21,8 @@ export const ProjectContainer = (props) => {
   };
 
   return (
-    <div>
-      <div className='project-container'>
-        {projectCards}
-      </div>
-      <button className='load-more standard-button'>Load More Projects</button>
+    <div className='project-container'>
+      {projectCards}
     </div>
   );
 };
