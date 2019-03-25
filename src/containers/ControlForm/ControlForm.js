@@ -69,7 +69,7 @@ export class ControlForm extends Component {
             <option value=''>Choose a project</option>
             {
               projects.map(project => {
-                return(<option value={project.id}>{project.name}</option>)
+                return(<option value={project.id} key={project.id}>{project.name}</option>)
               })
             }
           </select>

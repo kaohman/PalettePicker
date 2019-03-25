@@ -33,11 +33,6 @@ export const removePalette = (paletteId) => ({
   paletteId
 });
 
-export const setSearchProjects = (search) => ({
-  type: 'SEARCH_PROJECTS',
-  search
-});
-
 export const setSearching = (bool) => ({
   type: 'SEARCHING_PROJECTS',
   bool

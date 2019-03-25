@@ -41,7 +41,7 @@ export class Palette extends Component {
           {
             currentPalette.map((color, i) => {
               return(
-                <div style={{ backgroundColor: color }} className='color-div'>
+                <div style={{ backgroundColor: color }} key={i} className='color-div'>
                   <button 
                     onClick={this.toggleLock}
                     className={locked.includes(i.toString()) ? 'lock lock-button' : 'unlock lock-button'}
