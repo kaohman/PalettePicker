@@ -1,14 +1,52 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { searchProjects } from '../../thunks/searchProjects';
+import { setSearching } from '../../actions';
 
-export const Header = () => {
-  return(
-    <div className='header-div'>
-      <h1>Palette Picker</h1>
-      <label className='search-bar'>Search Projects:
-        <input placeholder='Type project/palette name'></input>
-      </label>
-    </div>
-  )
-}
+export class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: ''
+    };
+  };
 
-export default Header;
+  handleChange = (e) => {
+    const { value } = e.target;
+    this.setState({ search: value }, this.handleSearch);
+  };
+
+  handleSearch = () => {
+    const { search } = this.state;
+    const { setSearching, searchProjects } = this.props;
+    if (search.length) {
+      setSearching(true);
+      searchProjects(search);
+    } else {
+      setSearching(false);
+    }
+  };
+
+  render() {
+    const { search } = this.state;
+    return (
+      <div className='header-div'>
+        <h1>Palette Picker</h1>
+        <label className='search-bar'>Search Projects:
+        <input onChange={this.handleChange} value={search} placeholder='Type project/palette name'></input>
+        </label>
+      </div>
+    );
+  };
+};
+
+export const mapStateToProps = (state) => ({
+  searching: state.searching,
+});
+
+export const mapDispatchToProps = (dispatch) => ({
+  searchProjects: (search) => dispatch(searchProjects(search)),
+  setSearching: (bool) => dispatch(setSearching(bool)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
