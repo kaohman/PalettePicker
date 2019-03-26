@@ -1,37 +1,34 @@
 import React, { Component } from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import Header from '../Header/Header';
-import Palette from '../Palette/Palette';
-import ControlForm from '../ControlForm/ControlForm';
-import ProjectContainer from '../ProjectContainer/ProjectContainer';
 import '../../main.scss';
-import { connect } from 'react-redux';
-import { fetchProjects } from '../../thunks/fetchProjects';
+import Share from '../Share/Share';
+import Home from '../Home/Home';
+import NotFound from '../../components/NotFound/NotFound';
 
 export class App extends Component {
 
-  componentDidMount = () => {
-    this.props.fetchProjects();
-  };
-
   render() {
-    const { searching } = this.props;
     return (
       <div>
         <Header />
-        {!searching && <Palette />}
-        {!searching && <ControlForm />}
-        <ProjectContainer />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/project/:id' render={({ match }) => {
+            const { id } = match.params;
+            return <Share isProject={true} id={id} />
+          }}
+          />
+          <Route path='/palette/:id' render={({ match }) => {
+            const { id } = match.params;
+            return <Share isProject={false} id={id} />
+          }}
+          />
+          <Route component={NotFound} />
+        </Switch>
       </div>
     );
   };
 };
 
-export const mapStateToProps = (state) => ({
-  searching: state.searching,
-});
-
-export const mapDispatchToProps = (dispatch) => ({
-  fetchProjects: () => dispatch(fetchProjects()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(App);
