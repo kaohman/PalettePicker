@@ -39,11 +39,23 @@ describe('Palette', () => {
   });
 
   describe('setRandomColors', () => {
-    
+    it('should call setCurrentPalette', () => {
+      wrapper.instance().setRandomColors();
+      expect(mockSetCurrentPalette).toHaveBeenCalled();
+    });
   });
 
   describe('toggleLock', () => {
-    
+    it('should add an id to locked in state', () => {
+      wrapper.instance().toggleLock(mockEvent);
+      expect(wrapper.state('locked')).toEqual(['1']);
+    });
+
+    it('should remove an id from locked in state', () => {
+      wrapper.setState({ locked: ['1', '2']});
+      wrapper.instance().toggleLock(mockEvent);
+      expect(wrapper.state('locked')).toEqual(['2']);
+    });
   });
 
   describe('mapStateToProps', () => {
