@@ -20,7 +20,7 @@ export const ProjectCardPalette = ({ name, color1, color2, color3, color4, color
   )
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   deletePalette: (id) => dispatch(deletePalette(id)),
 });
 
