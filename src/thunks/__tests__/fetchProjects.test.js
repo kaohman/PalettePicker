@@ -24,6 +24,13 @@ describe('fetchProjects', () => {
     expect(fetchData).toHaveBeenCalledWith('/api/v1/projects', 'GET');
   });
 
+  it('should call fetchData with the correct params if a name is given', async () => {
+    const mockName = 'project';
+    const thunk = fetchProjects(mockName);
+    await thunk(mockDispatch);
+    expect(fetchData).toHaveBeenCalledWith(`/api/v1/projects?name=${mockName}`, 'GET');
+  });
+
   it('should dispatch setError with message if response is not ok', async () => {
     fetchData.mockImplementation(() => {
       throw { message: 'Error fetching data' }
@@ -51,7 +58,7 @@ describe('fetchProjects', () => {
 
   it.skip('should dispatch setPalettes if response is ok', async () => {
     const expectedProjects = [{ id: 1, name: 'Project 1' }, { id: 2, name: 'Project 2' }];
-    const expected = [
+    const expected = [[
       {
         id: 1,
         name: 'Palette 1',
@@ -72,7 +79,7 @@ describe('fetchProjects', () => {
         color4: '#ffffff',
         color5: '#ffffff'
       }
-    ];
+    ]];
     fetchData.mockImplementation(() => expectedProjects);
     fetchPalettes.mockImplementation(() => expected);
     const thunk = fetchProjects();

@@ -42,13 +42,22 @@ describe('postPalette', () => {
   });
 
   it('should dispatch addPalette if response is ok', async () => {
-    const mockId = 1;
+    const mockData = [{
+      id: 1,
+      name: 'New Palette',
+      project_id: 1,
+      color1: '#000000',
+      color2: '#000000',
+      color3: '#000000',
+      color4: '#000000',
+      color5: '#000000',
+    }];
     fetchData.mockImplementation(() => Promise.resolve([
-      mockId
+      mockData
     ]));
     const thunk = postPalette(mockPalette);
     await thunk(mockDispatch);
-    expect(mockDispatch).toHaveBeenCalledWith(addPalette({ ...mockPalette, id: mockId }));
+    expect(mockDispatch).toHaveBeenCalledWith(addPalette(mockData));
   });
 
   it('should dispatch setLoading(false)', async () => {

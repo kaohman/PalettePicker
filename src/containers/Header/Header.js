@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProjects } from '../../thunks/fetchProjects';
-import { setSearching } from '../../actions';
-import { setError } from '../../actions';
+import { setError, setSearching } from '../../actions';
 
 export class Header extends Component {
   constructor(props) {
@@ -43,14 +42,10 @@ export class Header extends Component {
   };
 };
 
-export const mapStateToProps = (state) => ({
-  searching: state.searching,
-});
-
 export const mapDispatchToProps = (dispatch) => ({
   setError: (error) => dispatch(setError(error)),
   fetchProjects: (name) => dispatch(fetchProjects(name)),
   setSearching: (bool) => dispatch(setSearching(bool))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(null, mapDispatchToProps)(Header);

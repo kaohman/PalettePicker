@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should match the correct snapshot 1`] = `
+<div
+  className="header-div"
+>
+  <h1>
+    Palette Picker
+  </h1>
+  <label
+    className="search-bar"
+  >
+    Search Projects:
+    <input
+      onChange={[Function]}
+      placeholder="Type project/palette name"
+      value=""
+    />
+  </label>
+</div>
+`;

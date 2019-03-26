@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Palette should match the correct snapshot 1`] = `
+<div>
+  <div
+    className="palette-div"
+  >
+    <div
+      className="color-div"
+      key="0"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+        }
+      }
+    >
+      <button
+        className="unlock lock-button"
+        id={0}
+        onClick={[Function]}
+      />
+      <h4>
+        #ffffff
+      </h4>
+    </div>
+    <div
+      className="color-div"
+      key="1"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+        }
+      }
+    >
+      <button
+        className="unlock lock-button"
+        id={1}
+        onClick={[Function]}
+      />
+      <h4>
+        #ffffff
+      </h4>
+    </div>
+    <div
+      className="color-div"
+      key="2"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+        }
+      }
+    >
+      <button
+        className="unlock lock-button"
+        id={2}
+        onClick={[Function]}
+      />
+      <h4>
+        #ffffff
+      </h4>
+    </div>
+    <div
+      className="color-div"
+      key="3"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+        }
+      }
+    >
+      <button
+        className="unlock lock-button"
+        id={3}
+        onClick={[Function]}
+      />
+      <h4>
+        #ffffff
+      </h4>
+    </div>
+    <div
+      className="color-div"
+      key="4"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+        }
+      }
+    >
+      <button
+        className="unlock lock-button"
+        id={4}
+        onClick={[Function]}
+      />
+      <h4>
+        #ffffff
+      </h4>
+    </div>
+  </div>
+  <button
+    className="generate-button standard-button"
+    onClick={[Function]}
+  >
+    Generate Palette
+  </button>
+</div>
+`;

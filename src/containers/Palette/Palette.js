@@ -60,11 +60,11 @@ export class Palette extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   currentPalette: state.currentPalette,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   setCurrentPalette: (palette) => dispatch(setCurrentPalette(palette)),
 });
 
