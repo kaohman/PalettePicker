@@ -1,11 +1,7 @@
 export const palettesReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_PALETTES':
-      let fetchedPalettes = [];
-      action.palettes.forEach(project => {
-        project.forEach(palette => fetchedPalettes.push(palette))
-      });
-      return fetchedPalettes
+      return action.palettes.flat();
     case 'ADD_PALETTE':
       return [action.palette, ...state];
     case 'REMOVE_PALETTE':
