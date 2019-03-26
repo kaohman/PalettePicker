@@ -34,13 +34,13 @@ describe('postProject', () => {
   });
 
   it('should dispatch addProject if response is ok', async () => {
-    const mockId = 1;
+    const mockResponse = { id: 1, name: 'New Project' };
     fetchData.mockImplementation(() => Promise.resolve([
-      mockId
+      mockResponse
     ]));
     const thunk = postProject(mockName);
     await thunk(mockDispatch);
-    expect(mockDispatch).toHaveBeenCalledWith(addProject({ id: mockId, name: mockName }));
+    expect(mockDispatch).toHaveBeenCalledWith(addProject(mockResponse));
   });
 
   it('should dispatch setLoading(false)', async () => {
