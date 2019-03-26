@@ -31,7 +31,11 @@ describe('Palette', () => {
   });
 
   describe('componentDidMount', () => {
-
+    it('should call setRandomColors', () => {
+      wrapper.instance().setRandomColors = jest.fn();
+      wrapper.instance().componentDidMount();
+      expect(wrapper.instance().setRandomColors).toHaveBeenCalled();
+    });
   });
 
   describe('setRandomColors', () => {
