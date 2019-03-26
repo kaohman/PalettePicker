@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProjectCard should match the correct snapshot 1`] = `
+<div
+  className="project-card"
+>
+  <h3 />
+  <button
+    className="delete-project"
+    onClick={[Function]}
+  />
+  <Connect(ProjectCardPalette)
+    color1="#ffffff"
+    color2="#ffffff"
+    color3="#ffffff"
+    color4="#ffffff"
+    color5="#ffffff"
+    id={1}
+    key="1"
+    name="Palette 1"
+  />
+</div>
+`;

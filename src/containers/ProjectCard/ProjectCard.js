@@ -21,7 +21,7 @@ export const ProjectCard = (props) => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   deleteProject: (id) => dispatch(deleteProject(id)),
 });
 
