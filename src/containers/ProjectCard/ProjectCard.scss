@@ -1,7 +1,13 @@
 .project-card {
-  height: 300px;
   width: 400px;
   border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px 20px;
+  box-shadow: 1px 1px 5px grey;
+}
+
+.project-title {
+  margin: 0;
 }
 
 .card-palette {
@@ -16,8 +22,8 @@
 
 .delete-project {
   position: relative;
-  top: -40px;
-  right: -360px;
+  top: -23px;
+  right: -340px;
   height: 20px;
   width: 20px;
   background: url('./images/trash.png');

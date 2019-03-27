@@ -1,11 +1,20 @@
-.project-container {
-  margin: 0 30px;
+.my-masonry-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
+  margin-top: 40px;
   grid-gap: 20px;
+  justify-content: center;
 }
 
 .load-more {
   display: block;
   margin: 10px auto;
+}
+
+.my-masonry-grid_column {
+  background-clip: padding-box;
+}
+
+.my-masonry-grid_column > div {
+  margin-bottom: 30px;
 }
