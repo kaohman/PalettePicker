@@ -4,7 +4,9 @@ exports[`ProjectCard should match the correct snapshot 1`] = `
 <div
   className="project-card"
 >
-  <h3 />
+  <h3
+    className="project-title"
+  />
   <button
     className="delete-project"
     onClick={[Function]}

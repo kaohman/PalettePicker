@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ControlForm should match the correct snapshot 1`] = `
+<div
+  className="form-div"
+>
+  <div
+    className="new-project-div"
+  >
+    <label>
+      Create New Project:
+      <input
+        id="project"
+        onChange={[Function]}
+        placeholder="Add project name"
+        value=""
+      />
+    </label>
+    <button
+      className="standard-button"
+      onClick={[Function]}
+    >
+      Save Project
+    </button>
+  </div>
+  <div
+    className="save-palette-div"
+  >
+    <select
+      onChange={[Function]}
+      value=""
+    >
+      <option
+        value=""
+      >
+        Choose a project
+      </option>
+      <option
+        key="1"
+        value={1}
+      >
+        Project 1
+      </option>
+      <option
+        key="2"
+        value={2}
+      >
+        Project 2
+      </option>
+    </select>
+    <input
+      id="palette"
+      onChange={[Function]}
+      placeholder="Add palette name"
+      value=""
+    />
+    <button
+      className="standard-button"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Save Palette
+    </button>
+  </div>
+  <p />
+</div>
+`;
