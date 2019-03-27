@@ -22,7 +22,6 @@ export class Share extends Component {
     } else if (isProject && projects.length) {
       return (
         <div>
-          <Palette palette={palette}/>
           <ProjectContainer />
         </div>
       );

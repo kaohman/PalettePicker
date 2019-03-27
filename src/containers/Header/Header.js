@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProjects } from '../../thunks/fetchProjects';
 import { setError, setSearching } from '../../actions';
+import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 export class Header extends Component {
   constructor(props) {
@@ -34,10 +36,13 @@ export class Header extends Component {
     const { search } = this.state;
     return (
       <div className='header-div'>
-        <h1>Palette Picker</h1>
-        <label className='search-bar'>Search Projects:
-        <input onChange={this.handleChange} value={search} placeholder='Type project/palette name'></input>
-        </label>
+        <NavLink id='title' to='/'>Palette Picker</NavLink>
+        {
+          this.props.location.pathname === '/' &&
+          <label className='search-bar'>Search Projects:
+          <input onChange={this.handleChange} value={search} placeholder='Type project/palette name'></input>
+          </label>
+        }
       </div>
     );
   };
@@ -55,4 +60,4 @@ Header.propTypes = {
   fetchProjects: PropTypes.func,
 }
 
-export default connect(null, mapDispatchToProps)(Header);
+export default withRouter(connect(null, mapDispatchToProps)(Header));

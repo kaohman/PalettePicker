@@ -32,14 +32,13 @@ export class Palette extends Component {
 
   componentDidMount = () => {
     const { palette, setCurrentPalette } = this.props;
-    const colors = palette ? [palette.color1, palette.color2, palette.color3, palette.color4, palette.color5] 
-      : null;
-    palette ? setCurrentPalette(colors) : this.setRandomColors();
+    palette ? setCurrentPalette([palette.color1, palette.color2, palette.color3, palette.color4, palette.color5]) :
+    this.setRandomColors();
   }
 
   render() {
     const { locked } = this.state;
-    const { currentPalette } = this.props;
+    const { currentPalette, palette } = this.props;
     return (
       <div>
         <div className='palette-div'>
@@ -53,13 +52,16 @@ export class Palette extends Component {
                     id={i}
                   >
                   </button>
-                  <h4>{color}</h4>
+                  <h4>{color.toUpperCase()}</h4>
                 </div>
               );
             })
           }
         </div>
-        <button onClick={this.setRandomColors} className='generate-button standard-button'>Generate Palette</button>
+        {
+          !palette &&
+          <button onClick={this.setRandomColors} className='generate-button standard-button'>Generate Palette</button>
+        }
       </div>
     );
   };
