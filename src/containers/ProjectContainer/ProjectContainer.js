@@ -1,9 +1,17 @@
 import React from 'react';
 import ProjectCard from '../ProjectCard/ProjectCard';
+import Masonry from 'react-masonry-css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 export const ProjectContainer = ({ error, searching, projects, palettes }) => {
+  const breakpointColumnsObj = {
+    default: 3,
+    1100: 3,
+    700: 2,
+    500: 1
+  };
+
   const sortItems = (items) => {
     let itemsCopy = items.slice();
     itemsCopy.sort((a, b) => {
@@ -36,9 +44,12 @@ export const ProjectContainer = ({ error, searching, projects, palettes }) => {
   }
 
   return (
-    <div className='project-container'>
+    <Masonry
+      breakpointCols={breakpointColumnsObj}
+      className='my-masonry-grid'
+      columnClassName='my-masonry-grid_column'>
       { searching && error ? <div>No projects or palettes match that name</div> : setProjectCards() }
-    </div>
+    </Masonry>
   );
 };
 
