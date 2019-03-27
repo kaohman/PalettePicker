@@ -19,6 +19,9 @@ export class ProjectCard extends Component {
 
   copyShareLink = () => {
     this.setState({ copied: true })
+    setTimeout(() => {
+      this.setState({ copied: false })
+    }, 2000);
   }
   
   render() {
@@ -26,6 +29,7 @@ export class ProjectCard extends Component {
     return (
       <div className='project-card'>
         <h3 className='project-title'>{projectTitle}</h3>
+        <p className={this.state.copied ? 'project-copied-text' : 'project-copied-text hidden'}>Copied</p>
         <CopyToClipboard text={window.location.href + `project/${id}`}
           onCopy={this.copyShareLink}>
           <button className='share-link'></button>

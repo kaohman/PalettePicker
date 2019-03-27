@@ -38,7 +38,7 @@ export class ProjectCardPalette extends Component {
           <button className='share-palette'></button>
         </CopyToClipboard>
         <button onClick={this.deleteCardPalette} id={id} className='delete-palette'></button>
-        {this.state.copied && <p className='copied-text'>Copied.</p>}
+        {this.state.copied && <p className='copied-text'>Copied</p>}
       </div>
     )
   }

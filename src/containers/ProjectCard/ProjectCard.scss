@@ -24,7 +24,7 @@
   margin-right: 10px;
   position: relative;
   top: -23px;
-  right: -310px;
+  right: -260px;
   height: 20px;
   width: 20px;
   background: url('./images/share.png');
@@ -41,7 +41,7 @@
 .delete-project {
   position: relative;
   top: -23px;
-  right: -310px;
+  right: -260px;
   height: 20px;
   width: 20px;
   background: url('./images/trash.png');
@@ -53,4 +53,16 @@
     background: url('./images/trash-hover.png');
     background-size: cover;
   }
+}
+
+.project-copied-text {
+  display: inline;
+  position: relative;
+  top: -23px;
+  right: -253px;
+  color: red;
+}
+
+.hidden {
+  visibility: hidden;
 }
