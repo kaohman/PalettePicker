@@ -7,6 +7,19 @@ exports[`ProjectCard should match the correct snapshot 1`] = `
   <h3
     className="project-title"
   />
+  <p
+    className="project-copied-text hidden"
+  >
+    Copied
+  </p>
+  <CopyToClipboard
+    onCopy={[Function]}
+    text="http://localhost/project/undefined"
+  >
+    <button
+      className="share-link"
+    />
+  </CopyToClipboard>
   <button
     className="delete-project"
     onClick={[Function]}

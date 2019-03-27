@@ -2,11 +2,25 @@
 
 exports[`Share should match the correct snapshot for not found 1`] = `<NotFound />`;
 
-exports[`Share should match the correct snapshot for palettes 1`] = `<Connect(Palette) />`;
+exports[`Share should match the correct snapshot for palettes 1`] = `
+<Connect(Palette)
+  palette={
+    Object {
+      "color1": "#ffffff",
+      "color2": "#ffffff",
+      "color3": "#ffffff",
+      "color4": "#ffffff",
+      "color5": "#ffffff",
+      "id": 1,
+      "name": "Palette 1",
+      "project_id": 1,
+    }
+  }
+/>
+`;
 
 exports[`Share should match the correct snapshot for projects 1`] = `
 <div>
-  <Connect(Palette) />
   <Connect(ProjectContainer) />
 </div>
 `;
