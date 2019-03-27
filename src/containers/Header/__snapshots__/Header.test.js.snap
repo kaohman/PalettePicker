@@ -4,9 +4,14 @@ exports[`Header should match the correct snapshot 1`] = `
 <div
   className="header-div"
 >
-  <h1>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    id="title"
+    to="/"
+  >
     Palette Picker
-  </h1>
+  </NavLink>
   <label
     className="search-bar"
   >

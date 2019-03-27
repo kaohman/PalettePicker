@@ -49,6 +49,14 @@ exports[`ProjectCardPalette should match the correct snapshot 1`] = `
       }
     }
   />
+  <CopyToClipboard
+    onCopy={[Function]}
+    text="http://localhost/palette/1"
+  >
+    <button
+      className="share-palette"
+    />
+  </CopyToClipboard>
   <button
     className="delete-palette"
     id={1}

@@ -11,8 +11,10 @@ describe('Header', () => {
   let setErrorMock;
   let setSearchingMock;
   let mockEvent;
+  let locationMock;
 
   beforeEach(() => {
+    locationMock = { pathname: '/' };
     fetchProjectsMock = jest.fn();
     setErrorMock = jest.fn();
     setSearchingMock = jest.fn();
@@ -20,6 +22,7 @@ describe('Header', () => {
 
     wrapper = shallow(
       <Header
+        location={locationMock}
         setError={setErrorMock}
         fetchProjects={fetchProjectsMock}
         setSearching={setSearchingMock}
