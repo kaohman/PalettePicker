@@ -15,16 +15,19 @@ export class Share extends Component {
   };
 
   render() {
-    const { projects, palettes, isProject } = this.props;
-    if (isProject && projects.length) {
+    const { projects, palettes, isProject, loading } = this.props;
+    const palette = palettes[0];
+    if(loading) {
+      return <div>loading</div>
+    } else if (isProject && projects.length) {
       return (
         <div>
-          <Palette />
+          <Palette palette={palette}/>
           <ProjectContainer />
         </div>
-      )
+      );
     } else if (!isProject && palettes.length) {
-      return <Palette />
+      return <Palette palette={palette} />
     } else {
       return <NotFound />
     }
@@ -34,6 +37,7 @@ export class Share extends Component {
 export const mapStateToProps = (state) => ({
   projects: state.projects,
   palettes: state.palettes,
+  loading: state.loading,
 });
 
 export const mapDispatchToProps = (dispatch) => ({
