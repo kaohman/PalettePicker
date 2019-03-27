@@ -12,14 +12,14 @@ export class ControlForm extends Component {
       selectedProject: '', 
       project: '',
       palette: ''
-    }
-  }
+    };
+  };
 
   saveProject = async () => {
     const { setError, postProject } = this.props;
     setError('');
     const id = await postProject(this.state.project);
-    this.setState({ selectedProject: id.toString() })
+    this.setState({ selectedProject: id.toString() });
     this.clearInput('project');
   }
 
@@ -41,18 +41,18 @@ export class ControlForm extends Component {
 
   clearInput = (name) => {
     !this.props.error && this.setState({ [name]: '' })
-  }
+  };
 
   handleChange = (e) => {
     const { value, id } = e.target;
     this.setState({
       [id]: value
     });
-  }
+  };
 
   changeSelectedProject = (e) => {
-    this.setState({ selectedProject: e.target.value })
-  }
+    this.setState({ selectedProject: e.target.value });
+  };
 
   render() {
     const { error, projects } = this.props;
@@ -79,9 +79,9 @@ export class ControlForm extends Component {
         </div>
         <p>{error}</p>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export const mapStateToProps = (state) => ({
   error: state.error,
@@ -102,12 +102,12 @@ ControlForm.propTypes = {
   postProject: PropTypes.func,
   setError: PropTypes.func,
   postPalette: PropTypes.func,
-}
+};
 
 ControlForm.defaultProps = {
   error: '',
   currentPalette: [],
   projects: [],
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ControlForm);
