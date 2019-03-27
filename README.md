@@ -1,5 +1,5 @@
 # PalettePicker
-#### PalettePicker is a React app that utilizes Redux and React Router to create an intuitive color palette picking scheme, similar to https://coolers.com.
+#### PalettePicker is a React app that utilizes Redux and React Router to create an intuitive color palette picking scheme, similar to https://coolors.co.
 
 ## Live Site
 https://palettes-picker.herokuapp.com/
