@@ -19,7 +19,7 @@ body {
   border-radius: 10px;
   box-shadow: 2px 2px 8px grey;
 
-  &:hover {
+  &:hover:enabled {
     background-color: pink;
     box-shadow: none;
   }
