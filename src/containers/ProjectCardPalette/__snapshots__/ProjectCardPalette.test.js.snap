@@ -4,7 +4,9 @@ exports[`ProjectCardPalette should match the correct snapshot 1`] = `
 <div
   className="card-palette"
 >
-  <h4>
+  <h4
+    className="name-text"
+  >
     Palette 1
   </h4>
   <div
