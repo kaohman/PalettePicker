@@ -1,6 +1,7 @@
 import React from 'react';
 import { deletePalette } from '../../thunks/deletePalette';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export const ProjectCardPalette = ({ name, color1, color2, color3, color4, color5, id, deletePalette }) => {
   const deleteCardPalette = async (e) => {
@@ -23,5 +24,9 @@ export const ProjectCardPalette = ({ name, color1, color2, color3, color4, color
 export const mapDispatchToProps = (dispatch) => ({
   deletePalette: (id) => dispatch(deletePalette(id)),
 });
+
+ProjectCardPalette.propTypes = {
+  deletePalette: PropTypes.func,
+}
 
 export default connect(null, mapDispatchToProps)(ProjectCardPalette);

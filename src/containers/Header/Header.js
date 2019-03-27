@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProjects } from '../../thunks/fetchProjects';
 import { setError, setSearching } from '../../actions';
+import PropTypes from 'prop-types';
 
 export class Header extends Component {
   constructor(props) {
@@ -47,5 +48,11 @@ export const mapDispatchToProps = (dispatch) => ({
   fetchProjects: (name) => dispatch(fetchProjects(name)),
   setSearching: (bool) => dispatch(setSearching(bool))
 });
+
+Header.propTypes = {
+  setSearching: PropTypes.func,
+  setError: PropTypes.func,
+  fetchProjects: PropTypes.func,
+}
 
 export default connect(null, mapDispatchToProps)(Header);

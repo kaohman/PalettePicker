@@ -4,6 +4,7 @@ import Palette from '../Palette/Palette';
 import ControlForm from '../ControlForm/ControlForm';
 import ProjectContainer from '../ProjectContainer/ProjectContainer';
 import { fetchProjects } from '../../thunks/fetchProjects';
+import PropTypes from 'prop-types';
 
 export class Home extends Component {
   
@@ -31,5 +32,16 @@ export const mapStateToProps = (state) => ({
 export const mapDispatchToProps = (dispatch) => ({
   fetchProjects: () => dispatch(fetchProjects()),
 });
+
+Home.propTypes = {
+  projects: PropTypes.array,
+  searching: PropTypes.bool,
+  fetchProjects: PropTypes.func,
+}
+
+Home.defaultProps = {
+  projects: [],
+  searching: false,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

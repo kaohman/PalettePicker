@@ -1,6 +1,7 @@
 import React from 'react';
 import ProjectCard from '../ProjectCard/ProjectCard';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export const ProjectContainer = ({ error, searching, projects, palettes }) => {
   const sortItems = (items) => {
@@ -47,5 +48,19 @@ export const mapStateToProps = (state) => ({
   searching: state.searching,
   error: state.error,
 });
+
+ProjectContainer.propTypes = {
+  projects: PropTypes.array,
+  palettes: PropTypes.array,
+  searching: PropTypes.bool,
+  error: PropTypes.string,
+}
+
+ProjectContainer.defaultProps = {
+  error: '',
+  projects: [],
+  palettes: [],
+  searching: false,
+}
 
 export default connect(mapStateToProps)(ProjectContainer);
