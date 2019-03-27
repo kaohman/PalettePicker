@@ -9,6 +9,10 @@ export const ProjectCard = (props) => {
     await props.deleteProject(parseInt(e.target.id));
   }
 
+  const copyShareLink = () => {
+    
+  }
+
   const palettes = props.palettes.map(palette => {
     return <ProjectCardPalette {...palette} key={palette.id}/>
   });
@@ -16,6 +20,7 @@ export const ProjectCard = (props) => {
   return (
     <div className='project-card'>
       <h3 className='project-title'>{props.projectTitle}</h3>
+      <button onClick={copyShareLink} id={props.id} className='share-link'></button>
       <button onClick={deleteCard} id={props.id} className='delete-project'></button>
       {palettes}
     </div>
