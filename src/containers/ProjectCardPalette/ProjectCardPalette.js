@@ -10,7 +10,7 @@ export const ProjectCardPalette = ({ name, color1, color2, color3, color4, color
 
   return (
     <div className='card-palette'>
-      <h4>{name}</h4>
+      <h4 className='name-text'>{name}</h4>
       <div style={{ backgroundColor: color1 }} className='palette-color-div'></div>
       <div style={{ backgroundColor: color2 }} className='palette-color-div'></div>
       <div style={{ backgroundColor: color3 }} className='palette-color-div'></div>

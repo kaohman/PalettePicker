@@ -15,7 +15,7 @@ export const ProjectCard = (props) => {
 
   return (
     <div className='project-card'>
-      <h3>{props.projectTitle}</h3>
+      <h3 className='project-title'>{props.projectTitle}</h3>
       <button onClick={deleteCard} id={props.id} className='delete-project'></button>
       {palettes}
     </div>
