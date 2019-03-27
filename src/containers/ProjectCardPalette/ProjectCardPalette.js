@@ -3,7 +3,6 @@ import { deletePalette } from '../../thunks/deletePalette';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { withRouter } from 'react-router-dom';
 
 export class ProjectCardPalette extends Component {
   constructor(props) {
@@ -49,4 +48,4 @@ ProjectCardPalette.propTypes = {
   deletePalette: PropTypes.func,
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(ProjectCardPalette));
+export default connect(null, mapDispatchToProps)(ProjectCardPalette);
