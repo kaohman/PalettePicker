@@ -2,6 +2,7 @@ import React from 'react';
 import { deleteProject } from '../../thunks/deleteProject';
 import { connect } from 'react-redux';
 import ProjectCardPalette from '../ProjectCardPalette/ProjectCardPalette';
+import PropTypes from 'prop-types';
 
 export const ProjectCard = (props) => {
   const deleteCard = async (e) => {
@@ -21,8 +22,12 @@ export const ProjectCard = (props) => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   deleteProject: (id) => dispatch(deleteProject(id)),
 });
+
+ProjectCard.propTypes = {
+  deleteProject: PropTypes.func,
+}
 
 export default connect(null, mapDispatchToProps)(ProjectCard);

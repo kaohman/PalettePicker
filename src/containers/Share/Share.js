@@ -5,6 +5,7 @@ import { fetchPalette } from '../../thunks/fetchPalette';
 import ProjectContainer from '../ProjectContainer/ProjectContainer';
 import Palette from '../Palette/Palette';
 import NotFound from '../../components/NotFound/NotFound';
+import PropTypes from 'prop-types';
 
 export class Share extends Component {
 
@@ -39,6 +40,18 @@ export const mapDispatchToProps = (dispatch) => ({
   fetchProject: (id) => dispatch(fetchProject(id)),
   fetchPalette: (id) => dispatch(fetchPalette(id)),
 });
+
+Share.propTypes = {
+  projects: PropTypes.array,
+  palettes: PropTypes.array,
+  fetchProject: PropTypes.func,
+  fetchPalette: PropTypes.func,
+}
+
+Share.defaultProps = {
+  palettes: [],
+  projects: [],
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Share);
 

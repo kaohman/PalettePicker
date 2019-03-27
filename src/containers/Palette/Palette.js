@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCurrentPalette } from '../../actions';
+import PropTypes from 'prop-types';
 
 export class Palette extends Component {
   constructor(props) {
@@ -67,5 +68,14 @@ export const mapStateToProps = (state) => ({
 export const mapDispatchToProps = (dispatch) => ({
   setCurrentPalette: (palette) => dispatch(setCurrentPalette(palette)),
 });
+
+Palette.propTypes = {
+  currentPalette: PropTypes.array,
+  setCurrentPalette: PropTypes.func,
+}
+
+Palette.defaultProps = {
+  currentPalette: [],
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Palette);

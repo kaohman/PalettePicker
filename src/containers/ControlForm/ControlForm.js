@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { postProject } from '../../thunks/postProject';
 import { postPalette } from '../../thunks/postPalette';
 import { setError } from '../../actions';
+import PropTypes from 'prop-types';
 
 export class ControlForm extends Component {
   constructor(props) {
@@ -93,5 +94,20 @@ export const mapDispatchToProps = (dispatch) => ({
   setError: (error) => dispatch(setError(error)),
   postPalette: (palette) => dispatch(postPalette(palette)),
 });
+
+ControlForm.propTypes = {
+  error: PropTypes.string,
+  currentPalette: PropTypes.array,
+  projects: PropTypes.array,
+  postProject: PropTypes.func,
+  setError: PropTypes.func,
+  postPalette: PropTypes.func,
+}
+
+ControlForm.defaultProps = {
+  error: '',
+  currentPalette: [],
+  projects: [],
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ControlForm);

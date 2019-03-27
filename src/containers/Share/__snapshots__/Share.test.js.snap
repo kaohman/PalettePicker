@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Share should match the correct snapshot for not found 1`] = `<NotFound />`;
+
+exports[`Share should match the correct snapshot for palettes 1`] = `<Connect(Palette) />`;
+
+exports[`Share should match the correct snapshot for projects 1`] = `
+<div>
+  <Connect(Palette) />
+  <Connect(ProjectContainer) />
+</div>
+`;

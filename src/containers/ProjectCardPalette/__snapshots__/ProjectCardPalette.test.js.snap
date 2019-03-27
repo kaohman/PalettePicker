@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProjectCardPalette should match the correct snapshot 1`] = `
+<div
+  className="card-palette"
+>
+  <h4>
+    Palette 1
+  </h4>
+  <div
+    className="palette-color-div"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <div
+    className="palette-color-div"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <div
+    className="palette-color-div"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <div
+    className="palette-color-div"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <div
+    className="palette-color-div"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <button
+    className="delete-palette"
+    id={1}
+    onClick={[Function]}
+  />
+</div>
+`;
