@@ -1,3 +1,18 @@
+.share-palette {
+  margin: 10px 5px 0 10px;
+  height: 20px;
+  width: 20px;
+  background: url('./images/share.png');
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: url('./images/share-hover.png');
+    background-size: cover;
+  }
+}
+
 .delete-palette {
   margin: 10px 5px 0 5px;
   height: 20px;
@@ -14,11 +29,17 @@
 }
 
 .name-text {
-  width: 100px;
+  width: 75px;
   text-align: left;
   margin: auto 10px auto 0;
 }
 
 .palette-color-div {
   margin: 5px 0;
+}
+
+.copied-text {
+  margin-top: 13px;
+  margin-bottom: 0;
+  color: red;
 }

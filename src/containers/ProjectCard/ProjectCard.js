@@ -1,25 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { deleteProject } from '../../thunks/deleteProject';
 import { connect } from 'react-redux';
 import ProjectCardPalette from '../ProjectCardPalette/ProjectCardPalette';
 import PropTypes from 'prop-types';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-export const ProjectCard = (props) => {
-  const deleteCard = async (e) => {
-    await props.deleteProject(parseInt(e.target.id));
+export class ProjectCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      copied: false
+    }
   }
 
-  const palettes = props.palettes.map(palette => {
-    return <ProjectCardPalette {...palette} key={palette.id}/>
-  });
+  deleteCard = async (e) => {
+    await this.props.deleteProject(parseInt(e.target.id));
+  }
 
-  return (
-    <div className='project-card'>
-      <h3 className='project-title'>{props.projectTitle}</h3>
-      <button onClick={deleteCard} id={props.id} className='delete-project'></button>
-      {palettes}
-    </div>
-  )
+  copyShareLink = () => {
+    this.setState({ copied: true })
+    setTimeout(() => {
+      this.setState({ copied: false })
+    }, 2000);
+  }
+  
+  render() {
+    const { palettes, projectTitle, id } = this.props;
+    return (
+      <div className='project-card'>
+        <h3 className='project-title'>{projectTitle}</h3>
+        <p className={this.state.copied ? 'project-copied-text' : 'project-copied-text hidden'}>Copied</p>
+        <CopyToClipboard text={window.location.href + `project/${id}`}
+          onCopy={this.copyShareLink}>
+          <button className='share-link'></button>
+        </CopyToClipboard>
+        <button onClick={this.deleteCard} id={id} className='delete-project'></button>
+        {
+          palettes.map(palette => {
+            return <ProjectCardPalette {...palette} key={palette.id} />
+          })
+        }
+      </div>
+    )
+  }
 }
 
 export const mapDispatchToProps = (dispatch) => ({
