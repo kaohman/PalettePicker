@@ -29,11 +29,17 @@
 }
 
 .name-text {
-  width: 100px;
+  width: 75px;
   text-align: left;
   margin: auto 10px auto 0;
 }
 
 .palette-color-div {
   margin: 5px 0;
+}
+
+.copied-text {
+  margin-top: 13px;
+  margin-bottom: 0;
+  color: red;
 }
