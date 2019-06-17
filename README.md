@@ -25,8 +25,7 @@ This application is a two-week-long paired project intended to solidify our REST
 - Redux-Thunk
 - React Router
 - SCSS
-- Jest
-- Enzyme
+- Jest/Enzyme
 - Masonry
 
 
